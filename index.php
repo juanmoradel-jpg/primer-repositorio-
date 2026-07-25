@@ -1,5 +1,7 @@
 <?php 
-    $saludo="hola mundo";
+    $edad =20;
+    $dias =365;
+    $dias_vividdos =$edad*$dias;
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +10,7 @@
     </head>
     <body>
         <h1>!hola mundo!</h1>
-        <h2><?php echo $saludo; ?></h2>
+        <h2>has vivido <?php echo $dias_vividdos;  ?> de dias</h2>
         <p>este es mi  primera pagina web. Hola soy juan</p>
     </body>
 </html>
