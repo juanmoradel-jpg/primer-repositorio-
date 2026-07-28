@@ -1,5 +1,5 @@
 <?php
-    $favoritos=["minecraf","zelda","mario bro","fifa","free fire","pou","terrari","efollboll"];
+    $edades=[1 ,2,3,4,5,20,100,1000,18,30,40,60,90,234];
 ?>
 
 <!DOCTYPE html>
@@ -9,10 +9,13 @@
         <h1>los mejores juegos en mi opinion</h1>
     </head>
     <body>
-        <ul> 
-            <?php foreach ($favoritos as $juegos) { ?>
-                <li><?php echo $juegos; ?></li>
-            <?php } ?>
-        </ul>
+        <h3> porton de entrada de menores </h3>
+        <?php foreach ($edades as $edad) {
+            if ($edad <= 18) { 
+                echo "<p>edad: $edad - acceso denegado</p>";
+            } else {
+                echo "<p>edad: $edad - acceso permitido</p>";
+            }
+        } ?>
     </body>
 </html>
