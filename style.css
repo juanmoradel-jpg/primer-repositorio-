@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Paleta temática de cafetería Premium */
+  --cafe-oscuro: #2C1810;
+  --cafe-medio: #5C3A21;
+  --cafe-claro: #8B5E3C;
+  --dorado: #C9A66B;
+  --crema: #FDFBF7;
+  --crema-translucido: rgba(253, 251, 247, 0.92);
+  --blanco: #FFFFFF;
+  --texto-principal: #3A2618;
+  --texto-secundario: #6B503B;
+  --borde-suave: #E5D5C5;
+  
+  /* Variables de diseño */
+  --sombra-elegante: 0 10px 40px rgba(44, 24, 16, 0.15);
+  --sombra-boton: 0 4px 15px rgba(201, 166, 107, 0.3);
+  --radio-borde: 16px;
+  --fuente-titulos: 'Playfair Display', Georgia, serif;
+  --fuente-texto: 'Poppins', system-ui, -apple-system, sans-serif;
+  --fuente-ticket: 'Courier Prime', 'Courier New', monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuente-texto);
+  color: var(--texto-principal);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Imagen de fondo de granos de café y taza con overlay oscuro */
+  background-image: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.8)), 
+                    url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Tipografía General */
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  color: var(--cafe-oscuro);
+  margin-top: 0;
+}
+
+/* Header y Navegación */
+.menu-principal {
+  background-color: var(--cafe-oscuro);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Separa el logo de la navegación si están al mismo nivel */
+  border-bottom: 2px solid var(--dorado);
+}
+
+/* Estilo para "La taza perfecta" en el header */
+.menu-principal::before,
+.menu-principal h1,
+.menu-principal .logo {
+  font-family: var(--fuente-titulos);
+  color: var(--dorado);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.menu-principal nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.menu-principal nav a {
+  color: var(--crema);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-principal nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--dorado);
+  transition: width 0.3s ease;
+}
+
+.menu-principal nav a:hover {
+  color: var(--dorado);
+}
+
+.menu-principal nav a:hover::after {
+  width: 100%;
+}
+
+/* Contenedor Principal Centrado */
+.contenedor {
+  width: 100%;
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 3rem;
+  flex: 1;
+  box-sizing: border-box;
+  background-color: var(--crema-translucido);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-elegante);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.contenedor h1, 
+.contenedor h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contenedor p {
+  text-align: center;
+  color: var(--texto-secundario);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Estilo para las listas (Especialidades) */
+.contenedor ul {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto 3rem auto;
+}
+
+.contenedor ul li {
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--borde-suave);
+  font-size: 1.1rem;
+  color: var(--texto-principal);
+  display: flex;
+  align-items: center;
+}
+
+.contenedor ul li::before {
+  content: '☕';
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.contenedor ul li:last-child {
+  border-bottom: none;
+}
+
+/* Botones */
+.boton-principal {
+  background-color: var(--dorado);
+  color: var(--cafe-oscuro);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: var(--fuente-texto);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--sombra-boton);
+  transition: all 0.3s ease;
+  display: block;
+  margin: 2rem auto;
+  text-align: center;
+  text-decoration: none;
+}
+
+.boton-principal:hover {
+  background-color: var(--cafe-oscuro);
+  color: var(--dorado);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.boton-principal:active {
+  transform: translateY(0);
+}
+
+/* Formulario - Estilo Tarjeta Elegante */
+.formulario-pedido {
+  background-color: var(--blanco);
+  padding: 3rem;
+  border-radius: var(--radio-borde);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin: 0 auto 3rem auto;
+  border: 1px solid var(--borde-suave);
+}
+
+.formulario-pedido input,
+.formulario-pedido select,
+.formulario-pedido textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid var(--borde-suave);
+  border-radius: 8px;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: var(--crema);
+  transition: all 0.3s ease;
+  color: var(--texto-principal);
+}
+
+.formulario-pedido input:focus,
+.formulario-pedido select:focus,
+.formulario-pedido textarea:focus {
+  outline: none;
+  border-color: var(--dorado);
+  box-shadow: 0 0 0 4px rgba(201, 166, 107, 0.15);
+  background-color: var(--blanco);
+}
+
+.formulario-pedido label {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  color: var(--cafe-oscuro);
+  font-size: 1.1rem;
+}
+
+/* Ticket - Diseño de Recibo Real y Moderno */
+.ticket {
+  background-color: #FFFDF8;
+  max-width: 350px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  font-family: var(--fuente-ticket);
+  color: #222;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #EAE3D2;
+  position: relative;
+  background-image: 
+    linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%),
+    linear-gradient(rgba(234, 227, 210, 0.3) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 1.5rem;
+}
+
+/* Efecto de bordes dentados (recorte de papel térmico) */
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-size: 16px 16px;
+}
+
+.ticket::before {
+  top: -8px;
+  background-image: radial-gradient(circle at 8px 0, transparent 8px, #FFFDF8 9px);
+}
+
+.ticket::after {
+  bottom: -8px;
+  background-image: radial-gradient(circle at 8px 16px, transparent 8px, #FFFDF8 9px);
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.05));
+}
+
+.ticket h1, 
+.ticket h2, 
+.ticket h3 {
+  font-family: var(--fuente-ticket);
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px dashed #D7CCC8;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.ticket p {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.5;
+}
+
+.ticket hr {
+  border: none;
+  border-top: 2px dashed #D7CCC8;
+  margin: 1.5rem 0;
+}
+
+.ticket .total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #D7CCC8;
+  text-transform: uppercase;
+}
+
+/* Footer */
+.pie-pagina {
+  background-color: var(--cafe-oscuro);
+  color: var(--dorado);
+  text-align: center;
+  padding: 2.5rem;
+  margin-top: auto;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(201, 166, 107, 0.2);
+}
