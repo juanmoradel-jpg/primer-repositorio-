@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido - La taza perfecta</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="menu-principal">
+      <h2>la taza perfecta</h2>
+      <nav>
+        <a href="index.html">inicio</a>
+        <a href="pedido.html">hacer un pedido</a>
+      </nav>
+    </header>
+
+    <main class="contenedor">
+      <section id="pedido" class="pedido">
+        <h2>generar un nuevo pedido</h2>
+
+        <div class="formulario-pedido">
+          <form id="formulario-pedido" novalidate>
+            <label for="tipo-cafe">selecciona tu cafe:</label>
+            <select id="tipo-cafe" name="tipo_cafe" required></select>
+
+            <label for="cantidad">cantidad:</label>
+            <input id="cantidad" type="number" name="cantidad" value="1" min="1" required />
+
+            <label for="sin-azucar" class="check-label">
+              <input id="sin-azucar" type="checkbox" name="sin_azucar" value="si" />
+              preparar sin azucar
+            </label>
+
+            <button type="submit" class="boton-principal">Procesar Orden</button>
+          </form>
+        </div>
+
+        <div id="ticket" class="ticket" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="pie-pagina">
+      <p>&copy;2026 la taza perfecta. todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
