@@ -19,22 +19,30 @@ class Cafe {
 return $this->precio * $cantidad_pedida; }   
 }
 
+// 1. Nos conectamos a la base de datos de DDEV (host, dbname, usuario, contraseña)
+$conexion = new PDO("mysql:host=db;dbname=db", "db", "db");
+// 2. Preparamos la pregunta (Query)
+$consulta = $conexion->query("SELECT * FROM menu");
+// 3. Descargamos los datos genéricos
+$menu_db = $consulta->fetchAll(PDO::FETCH_OBJ);
 
-$menu = [
-    "Espresso" => new Cafe("Espresso", 35),
-    "Americano" => new Cafe("Americano", 40),
-    "Capuccino" => new Cafe("Capuccino", 55),
-    "Latte" => new Cafe("Latte", 60)
-];
+// 4. CORRECCIÓN: Convertimos los datos a objetos de la clase Cafe 
+// y creamos el arreglo $menu donde la "llave" es el nombre del café.
+$menu = [];
+foreach ($menu_db as $item) {
+    $menu[$item->nombre] = new Cafe($item->nombre, $item->precio);
+}
 ?>
+
 <h2>generar un nuevo pedido</h2>
 <div class="formulario-pedido">
     <form method="POST">
         <label>selecciona tu cafe: </label>
         <select name="tipo_cafe" required>
-            <?php foreach ($menu as $llave => $objeto_cafe) { ?>
-            <option value='<?php echo $llave; ?>'>
-            <?php echo $objeto_cafe->obtenerDescripcion(); ?>
+            <!-- Usamos el nuevo arreglo $menu -->
+            <?php foreach ($menu as $item) { ?>
+            <option value='<?php echo $item->nombre; ?>'>
+            <?php echo $item->obtenerDescripcion(); ?>
             </option>
             <?php } ?>
         </select>
