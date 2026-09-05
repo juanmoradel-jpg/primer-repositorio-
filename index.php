@@ -1,16 +1,19 @@
 <?php include 'header.php';?>
-<div class="presentacion ">
-    <h1 > bienvenido a la taza pefecta </h1>
-    <p>el mejor cafe de la cuidad, preparado al instante y conm los mejores granos selccionados.<p>
-        <div class = "destacados">
-            <h3>nuestras especialidades> :</h3>
+<div class="presentacion">
+    <p class="eyebrow">CAFÉ DE ESPECIALIDAD</p>
+    <h1>Bienvenido a la taza perfecta</h1>
+    <p>El mejor café de la ciudad, preparado al instante con granos seleccionados.</p>
+        <div class="destacados">
+            <h3>Nuestras especialidades</h3>
             <ul>
-                <li>expresso intenso </li>
-                <li>americano clasico</li>
-                <li>capuccino espemuso</li>
-                <li>latte suave </li>
+                <li>Espresso intenso</li>
+                <li>Americano clásico</li>
+                <li>Capuccino espumoso</li>
+                <li>Latte suave</li>
+                <li>Mocha</li>
+                <li>Selecto</li>
 </ul>
 </div>
-<a href="orden.php" class="boton-principal">ordena tu cafe ahora!</a>
+<a href="orden.php" class="boton-principal">Ordena tu café ahora</a>
 </div>
 <?php include 'footer.php' ; ?>

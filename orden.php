@@ -52,7 +52,7 @@ foreach ($menu_db as $item) {
         <input type ="number" name="cantidad" value="1" min="1" required >
         <br><br>
         
-        <label>
+        <label class="opcion-checkbox">
             <input type="checkbox" name="sin_azucar" value="si"> preparar sin azucar
         </label>
         <br><br>

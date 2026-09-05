@@ -2,14 +2,14 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>cafe de especialidad </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>La taza perfecta</title>
         <link rel="stylesheet" href="style.css">
-</head>
 </head>
 <header class="menu-principal">
     <h2>la taza perfecta </h2>
     <nav>
-        <a href="index.html">inicio</a>
+        <a href="index.php">inicio</a>
         <a href="orden.php">hacer un pedido</a>
 </nav>
 </header>

@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 
 :root {
   /* Paleta temática de cafetería Premium */
-  --cafe-oscuro: #2C1810;
+  --cafe-oscuro: #211712;
   --cafe-medio: #5C3A21;
-  --cafe-claro: #8B5E3C;
-  --dorado: #C9A66B;
-  --crema: #FDFBF7;
-  --crema-translucido: rgba(253, 251, 247, 0.92);
+  --cafe-claro: #9B6745;
+  --dorado: #E2B66B;
+  --crema: #FFF9F0;
+  --crema-translucido: rgba(255, 249, 240, 0.94);
   --blanco: #FFFFFF;
-  --texto-principal: #3A2618;
-  --texto-secundario: #6B503B;
+  --texto-principal: #342218;
+  --texto-secundario: #735742;
   --borde-suave: #E5D5C5;
   
   /* Variables de diseño */
   --sombra-elegante: 0 10px 40px rgba(44, 24, 16, 0.15);
   --sombra-boton: 0 4px 15px rgba(201, 166, 107, 0.3);
-  --radio-borde: 16px;
-  --fuente-titulos: 'Playfair Display', Georgia, serif;
-  --fuente-texto: 'Poppins', system-ui, -apple-system, sans-serif;
+  --radio-borde: 20px;
+  --fuente-titulos: 'Fraunces', Georgia, serif;
+  --fuente-texto: 'DM Sans', system-ui, sans-serif;
   --fuente-ticket: 'Courier Prime', 'Courier New', monospace;
 }
 
@@ -31,12 +31,22 @@ body {
   flex-direction: column;
   min-height: 100vh;
   /* Imagen de fondo de granos de café y taza con overlay oscuro */
-  background-image: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.8)), 
+  background-image: linear-gradient(120deg, rgba(33, 23, 18, 0.82), rgba(92, 58, 33, 0.68)),
                     url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1920&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+::selection { background: var(--dorado); color: var(--cafe-oscuro); }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Tipografía General */
@@ -49,7 +59,7 @@ h1, h2, h3 {
 /* Header y Navegación */
 .menu-principal {
   background-color: var(--cafe-oscuro);
-  padding: 1rem 2rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   position: sticky;
   top: 0;
@@ -57,12 +67,14 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Separa el logo de la navegación si están al mismo nivel */
-  border-bottom: 2px solid var(--dorado);
+  border-bottom: 1px solid rgba(226, 182, 107, 0.45);
+  animation: aparecer 0.7s ease both;
 }
 
 /* Estilo para "La taza perfecta" en el header */
 .menu-principal::before,
 .menu-principal h1,
+.menu-principal h2,
 .menu-principal .logo {
   font-family: var(--fuente-titulos);
   color: var(--dorado);
@@ -86,7 +98,7 @@ h1, h2, h3 {
   font-size: 1rem;
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -104,6 +116,7 @@ h1, h2, h3 {
 
 .menu-principal nav a:hover {
   color: var(--dorado);
+  transform: translateY(-2px);
 }
 
 .menu-principal nav a:hover::after {
@@ -114,8 +127,8 @@ h1, h2, h3 {
 .contenedor {
   width: 100%;
   max-width: 900px;
-  margin: 4rem auto;
-  padding: 3rem;
+  margin: clamp(1.5rem, 5vw, 4rem) auto;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
   flex: 1;
   box-sizing: border-box;
   background-color: var(--crema-translucido);
@@ -123,13 +136,14 @@ h1, h2, h3 {
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radio-borde);
   box-shadow: var(--sombra-elegante);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: aparecer 0.8s 0.1s ease both;
 }
 
 .contenedor h1, 
 .contenedor h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
   margin-bottom: 1rem;
 }
 
@@ -140,6 +154,38 @@ h1, h2, h3 {
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto 2rem auto;
+}
+
+.presentacion {
+  text-align: center;
+}
+
+.presentacion .eyebrow {
+  color: var(--cafe-claro);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.presentacion h1 {
+  color: var(--cafe-oscuro);
+  line-height: 1.05;
+}
+
+.destacados {
+  max-width: 520px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem clamp(1rem, 4vw, 2rem);
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(155, 103, 69, 0.14);
+  border-radius: var(--radio-borde);
+}
+
+.destacados h3 {
+  color: var(--cafe-medio);
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
 }
 
 /* Estilo para las listas (Especialidades) */
@@ -157,6 +203,12 @@ h1, h2, h3 {
   color: var(--texto-principal);
   display: flex;
   align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contenedor ul li:hover {
+  color: var(--cafe-claro);
+  transform: translateX(5px);
 }
 
 .contenedor ul li::before {
@@ -183,7 +235,7 @@ h1, h2, h3 {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: var(--sombra-boton);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: block;
   margin: 2rem auto;
   text-align: center;
@@ -199,6 +251,15 @@ h1, h2, h3 {
 
 .boton-principal:active {
   transform: translateY(0);
+}
+
+.boton-principal:focus-visible,
+.menu-principal nav a:focus-visible,
+.formulario-pedido input:focus-visible,
+.formulario-pedido select:focus-visible,
+.formulario-pedido textarea:focus-visible {
+  outline: 3px solid rgba(226, 182, 107, 0.7);
+  outline-offset: 3px;
 }
 
 /* Formulario - Estilo Tarjeta Elegante */
@@ -243,6 +304,22 @@ h1, h2, h3 {
   font-weight: 600;
   color: var(--cafe-oscuro);
   font-size: 1.1rem;
+}
+
+.formulario-pedido .opcion-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.formulario-pedido .opcion-checkbox input[type="checkbox"] {
+  width: 1.05rem;
+  height: 1.05rem;
+  padding: 0;
+  margin: 0;
+  accent-color: var(--cafe-claro);
+  flex: 0 0 auto;
 }
 
 /* Ticket - Diseño de Recibo Real y Moderno */
@@ -330,4 +407,74 @@ h1, h2, h3 {
   font-family: var(--fuente-texto);
   font-size: 0.95rem;
   border-top: 1px solid rgba(201, 166, 107, 0.2);
+}
+
+@media (max-width: 640px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .menu-principal {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .menu-principal::before,
+  .menu-principal h1,
+  .menu-principal h2,
+  .menu-principal .logo {
+    font-size: 1.5rem;
+  }
+
+  .menu-principal nav {
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .menu-principal nav a {
+    font-size: 0.78rem;
+  }
+
+  .contenedor {
+    width: calc(100% - 1.5rem);
+    margin: 0.75rem auto 1.5rem;
+    border-radius: 15px;
+  }
+
+  .contenedor h1,
+  .contenedor h2 {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+  }
+
+  .contenedor p {
+    font-size: 1rem;
+  }
+
+  .formulario-pedido {
+    padding: 1.25rem;
+  }
+
+  .boton-principal {
+    width: 100%;
+    margin: 1.5rem auto;
+    padding: 0.95rem 1rem;
+  }
+
+  .pie-pagina {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
