@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+ob_start();
+session_start();
+include 'header.php';
+?>
 
 <?php
 class Cafe {
@@ -16,7 +20,7 @@ class Cafe {
     }
 
     public function calcularSubtotal($cantidad_pedida) {
-return $this->precio * $cantidad_pedida; }   
+        return $this->precio * $cantidad_pedida; }
 }
 
 // 1. Nos conectamos a la base de datos de DDEV (host, dbname, usuario, contraseña)
@@ -72,12 +76,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 2. Extraemos su precio usando la flecha y calculamos
     $total = $mi_bebida->calcularSubtotal($cantidad);
-    echo "<div class='ticket'>";
-    echo "<h3>Ticket de Compra</h3>";
-    echo "<p><strong>Producto:</strong> $cantidad x " . $mi_bebida->nombre . "
-    ($preferencia)</p>";
-    echo "<p><strong>Total a pagar:</strong> $$total</p>";
-    echo "</div>";
+
+    $_SESSION['ticket'] = [
+        'cantidad' => $cantidad,
+        'producto' => $mi_bebida->nombre,
+        'preferencia' => $preferencia,
+        'total' => $total
+    ];
+
+    header('Location: ticket.php');
+    exit;
 }
 ?>
 

@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="style.css">
 </head>
 <header class="menu-principal">
-    <h2>la taza perfecta </h2>
+    <h2>La taza perfecta</h2>
     <nav>
-        <a href="index.php">inicio</a>
-        <a href="orden.php">hacer un pedido</a>
-</nav>
+        <a href="index.php">Inicio</a>
+        <a href="orden.php">Hacer un pedido</a>
+    </nav>
 </header>
-<main class="contenedor ">
+<main class="contenedor">
